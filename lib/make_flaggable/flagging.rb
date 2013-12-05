@@ -5,28 +5,7 @@ module MakeFlaggable
     scope :with_flag, lambda { |flag| where(:flag => flag.to_s) }
     scope :with_flaggable, lambda { |flaggable| where(:flaggable_type => flaggable.class.name, :flaggable_id => flaggable.id) }
 
-    def flaggable
-      @flaggable
-    end
+    attr_accessible :flaggable, :flagger, :flag
 
-    def flaggable=(value)
-      @flaggable = value
-    end
-
-    def flagger
-      @flagger
-    end
-
-    def flagger=(value)
-      @flagger = value
-    end
-
-    def flag
-      @flag
-    end
-
-    def flag=(value)
-      @flag = value
-    end
   end
 end
